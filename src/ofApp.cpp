@@ -58,7 +58,7 @@ void ofApp::draw(){
 
     
     ofFill();
-    ofSetColor(9,12,107,40);
+    ofSetColor(9,12,107,7);
     ofRect(0, 0, ofGetWidth(), ofGetHeight());
     
     ofMesh mesh;
