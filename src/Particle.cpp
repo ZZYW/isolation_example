@@ -13,7 +13,7 @@ Particle::Particle(ofVec3f _location){
     acceleration = ofVec3f(0,0,0);
     velocity = ofVec3f(0,0,0);
     location = _location;
-    maxspeed = ofRandom(0.01,0.9);
+    maxspeed = ofRandom(0.1,1.5);
     maxforce = ofRandom(0.1);
     radius = 2;
     target = ofVec3f(0,0,0);
