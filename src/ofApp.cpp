@@ -7,11 +7,11 @@ void ofApp::setup(){
     cam.enableMouseInput();
     cam.enableMouseMiddleButton();
     
-    particleListCount = 10000;
+    particleListCount = 40000;
     
     for (int i=0; i<particleListCount; i++) {
-        particleList.push_back(ofVec3f(ofRandom(0,ofGetWindowWidth()),ofRandom(0,ofGetWindowHeight()),ofRandom(-200,200)));
-        targets.push_back(ofVec3f(ofRandom(0,ofGetWindowWidth()),ofRandom(0,ofGetWindowHeight()),ofRandom(-200,200)));
+        particleList.push_back(ofVec3f(ofRandom(0,ofGetWindowWidth()),ofRandom(0,ofGetWindowHeight()),0));
+        targets.push_back(ofVec3f(ofRandom(0,ofGetWindowWidth()),ofRandom(0,ofGetWindowHeight()),0));
     }
 }
 
@@ -19,14 +19,19 @@ void ofApp::setup(){
 void ofApp::update(){
     
     
-    if(ofGetFrameNum()%1000==0){
-        for (int i=0; i<particleListCount; i++) {
-            targets[i] = ofVec3f(ofRandom(0,ofGetWindowWidth()),ofRandom(0,ofGetWindowHeight()),ofRandom(-200,200));
-        }
-    }
     
     for(int i=0;i<particleListCount;i++){
-        particleList[i].update(targets[i]);
+        
+        ofVec3f target;
+        target = ofVec3f(
+                        particleList[i].location.x + 8*(ofNoise(400/9+particleList[i].location.y/80)-0.5),
+                    particleList[i].location.y + 8*(ofNoise(400/9+particleList[i].location.x/80)-0.5),
+                         0
+        
+        );
+        particleList[i].update(
+                        target
+        );
     }
     
 
