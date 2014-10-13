@@ -22,13 +22,10 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    float Oscillation = 3;
+    float Oscillation = 1.5;
     noiseSeedValue += ofRandom(-Oscillation,Oscillation);
-    
     ofVec3f mousePos = ofVec3f(mouseX,mouseY,0);
-    
     cout<<ofGetFrameRate()<<endl;
-    
     for(int i=0;i<particleList.size();i++){
         ofVec3f target;
         target = ofVec3f(
@@ -53,21 +50,14 @@ void ofApp::update(){
             particleList[i].dim();
         }
         
-       
-        
-        
-        
         particleList[i].update(target);
-        
     }
-    
-    
 }
 //--------------------------------------------------------------
 void ofApp::draw(){
     gui.draw();
     
-    ofSetColor(0, 30, 182,10);
+    ofSetColor(0, 30, 182, 6);
     ofRect(0, 0, ofGetWidth(), ofGetHeight());
     
     

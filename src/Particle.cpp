@@ -17,7 +17,6 @@ Particle::Particle(ofVec3f _location){
     maxforce = ofRandom(0.01,0.06);
     target = ofVec3f(0,0,0);
     c = ofColor(255,255,255,minA);
-    
 }
 
 void Particle::update(ofVec3f _target){
@@ -48,21 +47,6 @@ void Particle::dim(){
     
 }
 
-void Particle::updateTail(ofVec3f _location){
-    
-    
-    if (tailCounter > tailLength) {
-        tailCounter = 0;
-    }
-    
-
-    tail[tailCounter] = _location;
-    
-    tailCounter++;
-    
-    
-    
-}
 
 
 

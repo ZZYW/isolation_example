@@ -24,14 +24,13 @@ class ofApp : public ofBaseApp{
     
     vector<Particle> particleList;
     vector<ofVec3f> targets;
-//    vector<tail> tails;
     int particleListCount;
     ofEasyCam cam;
     
     bool displayTail = true;
     
 //    ofxFloatSlider noiseSeedValue;
-    float noiseSeedValue = 320;
+    float noiseSeedValue = 200;
     ofxFloatSlider noiseSeedValue2;
     ofxFloatSlider noiseVariable3;
     ofxFloatSlider noiseVariable4;
