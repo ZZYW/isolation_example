@@ -2,6 +2,8 @@
 
 #include "ofMain.h"
 #include "Particle.h"
+#include "ofxGui.h"
+
 
 class ofApp : public ofBaseApp{
 
@@ -22,9 +24,21 @@ class ofApp : public ofBaseApp{
     
     vector<Particle> particleList;
     vector<ofVec3f> targets;
+//    vector<tail> tails;
     int particleListCount;
     ofEasyCam cam;
     
+    bool displayTail = true;
+    
+//    ofxFloatSlider noiseSeedValue;
+    float noiseSeedValue = 320;
+    ofxFloatSlider noiseSeedValue2;
+    ofxFloatSlider noiseVariable3;
+    ofxFloatSlider noiseVariable4;
+    ofxLabel OscillationValue;
+    ofxPanel gui;
+    
+
     
 		
 };

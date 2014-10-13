@@ -13,13 +13,12 @@ Particle::Particle(ofVec3f _location){
     acceleration = ofVec3f(0,0,0);
     velocity = ofVec3f(0,0,0);
     location = _location;
-    maxspeed = ofRandom(0.1,1.5);
-    maxforce = ofRandom(0.1);
-    radius = 2;
+    maxspeed = ofRandom(0.1,2);
+    maxforce = ofRandom(0.01,0.06);
     target = ofVec3f(0,0,0);
+    c = ofColor(255,255,255,minA);
     
 }
-
 
 void Particle::update(ofVec3f _target){
     
@@ -35,6 +34,33 @@ void Particle::update(ofVec3f _target){
     velocity.limit(maxspeed);
     location += velocity;
     acceleration = acceleration * 0;
+    
+}
+
+void Particle::dim(){
+    
+    ofColor currentColor = c;
+    
+    if(currentColor.a > minA){
+        currentColor.set(currentColor.r, currentColor.g, currentColor.b, currentColor.a -1);
+        c = currentColor;
+    }
+    
+}
+
+void Particle::updateTail(ofVec3f _location){
+    
+    
+    if (tailCounter > tailLength) {
+        tailCounter = 0;
+    }
+    
+
+    tail[tailCounter] = _location;
+    
+    tailCounter++;
+    
+    
     
 }
 

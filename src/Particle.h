@@ -24,11 +24,18 @@ public:
     float radius;
     float maxforce;
     float maxspeed;
-    ofColor fillColor;
-    
+    ofColor c;
+    float minA = 90;
+    bool lightUp = false;
+   
+    int tailCounter = 0;
+    int tailLength = 5;
+    ofVec3f tail[5];
     
     void update(ofVec3f _target);
     void render();
+    void updateTail(ofVec3f _location);
+    void dim();
 };
 
 #endif /* defined(__particleSystem_VectorField__Particle__) */
