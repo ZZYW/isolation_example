@@ -23,11 +23,8 @@ class ofApp : public ofBaseApp{
 		void gotMessage(ofMessage msg);
     
     vector<Particle> particleList;
-    vector<ofVec3f> targets;
     int particleListCount;
     ofEasyCam cam;
-    
-    bool displayTail = true;
     
 //    ofxFloatSlider noiseSeedValue;
     float noiseSeedValue = 200;

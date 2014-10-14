@@ -25,7 +25,7 @@ public:
     float maxforce;
     float maxspeed;
     ofColor c;
-    float minA = 90;
+    float minA = 78;
     bool lightUp = false;
    
     int tailCounter = 0;
