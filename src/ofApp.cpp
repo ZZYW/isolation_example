@@ -20,7 +20,7 @@ void ofApp::setup(){
 //--------------------------------------------------------------
 void ofApp::update(){
     
-    float Oscillation = 1;
+    float Oscillation = 1.5;
     noiseSeedValue += ofRandom(-Oscillation,Oscillation);
     ofVec3f mousePos = ofVec3f(mouseX,mouseY,0);
     for(int i=0;i<particleList.size();i++){
@@ -30,7 +30,7 @@ void ofApp::update(){
                          particleList[i].location.y + noiseVariable4*(ofNoise(noiseVariable3/noiseSeedValue2+particleList[i].location.x/noiseSeedValue)-0.5),
                          0);
         
-      // cout<<ofNoise(noiseVariable3/noiseSeedValue2+particleList[i].location.y/noiseSeedValue)<<endl;
+      
         
         float isolationR = 180;
         float margin = 100;
@@ -49,6 +49,17 @@ void ofApp::update(){
         }else{
             particleList[i].dim();
         }
+        
+        if(particleList[i].location.x > ofGetWidth()){
+            particleList[i].location.x = 0;
+        }else if(particleList[i].location.x < 0){
+            particleList[i].location.x = ofGetWidth();
+        }else if(particleList[i].location.y > ofGetHeight()){
+            particleList[i].location.y = 0;
+        }else if(particleList[i].location.y < 0){
+            particleList[i].location.y = ofGetHeight();
+        }
+        
         
         particleList[i].update(target);
     }
@@ -79,6 +90,14 @@ void ofApp::draw(){
 
 //--------------------------------------------------------------
 void ofApp::keyPressed(int key){
+    switch (key) {
+		case 'f':
+			ofToggleFullscreen();
+			break;
+		default:
+			break;
+	}
+
     
 }
 
