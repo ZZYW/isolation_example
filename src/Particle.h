@@ -24,9 +24,11 @@ public:
     float radius;
     float maxforce;
     float maxspeed;
+    float repelMaxspeed;
     ofColor c;
-    float minA = 78;
+    float minA;
     bool lightUp = false;
+    bool escaping = false;
    
     int tailCounter = 0;
     int tailLength = 5;
@@ -36,6 +38,8 @@ public:
     void render();
     void updateTail(ofVec3f _location);
     void dim();
+    void dimSpeed();
+    
 };
 
 #endif /* defined(__particleSystem_VectorField__Particle__) */
